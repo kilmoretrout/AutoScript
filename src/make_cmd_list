@@ -62,5 +62,7 @@ if __name__ == '__main__':
 
     cmds = []
     args = zip(*args)
+
+    print('#!/bin/bash')
     for a in args:
         print(cmd.format(*a))
