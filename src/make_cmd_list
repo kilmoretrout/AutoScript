@@ -127,7 +127,7 @@ if __name__ == '__main__':
                 _ = np.array(['' for u in range(len(args))], dtype = str)
 
                 for k in range(len(al)):
-                    _[ix[k]] = a[k]
+                    _[ix[k]] = al[k]
 
                 print(_)
                 sys.exit()
