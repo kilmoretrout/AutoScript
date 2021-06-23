@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
             args.append(_)
         elif acmd == 'pickle':
-            pkl_arg = params.split('$')[1]
+            pkl_arg = params.split('$')[0]
             pkl = cargs[pkl_arg]
 
             pkl = pickle.load(open(pkl, 'rb'))
