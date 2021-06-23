@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
                 _ = []
                 for a in l:
-                    _.append(os.path.join(dir, a))
+                    _.append(os.path.join(dir, a))                
 
             args.append(_)
         elif acmd == 'pickle':
