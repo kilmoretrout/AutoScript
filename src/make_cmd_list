@@ -124,7 +124,7 @@ if __name__ == '__main__':
             args = list(product(*args_))
 
             for al in args:
-                _ = np.array(['' for u in range(len(args))], dtype = str)
+                _ = np.array(['' for u in range(len(al))], dtype = str)
 
                 for k in range(len(al)):
                     _[ix[k]] = al[k]
