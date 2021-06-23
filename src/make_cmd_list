@@ -34,7 +34,7 @@ if __name__ == '__main__':
         if arg == '':
             continue
         if '###' in arg:
-            super = args.replace('###', '')
+            super = arg.replace('###', '')
             continue
 
         acmd, params = arg.split(':')
