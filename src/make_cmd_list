@@ -124,9 +124,11 @@ if __name__ == '__main__':
             args_prod = list(product(*args_))
 
             for al in args_prod:
-                _ = np.array(['' for u in range(len(args))], dtype = str)
 
-                print(ix, al)
+                _ = np.array(['' for u in range(max([max(u) for u in ix]))], dtype = str)
+
+                for k in range(len(al)):
+                    _[ix[k]] = al[k]
 
                 print(_)
                 sys.exit()
