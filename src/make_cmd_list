@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
             ext = params.split('$')[1]
             if '\\list' in ext:
-                sargs = ext.replace('\\split', '')[1:-1]
+                sargs = ext.replace('\\list', '')[1:-1]
                 _ = "l=" + sargs
                 exec(_)
 
@@ -85,7 +85,7 @@ if __name__ == '__main__':
             if '\\get' in ext:
                 _ = []
 
-                ix = int(ext.replace('\\split', '')[1:-1])
+                ix = int(ext.replace('\\get', '')[1:-1])
                 for p in pkl:
                     _.append(p[ix])
             elif '\\index' in ext:
