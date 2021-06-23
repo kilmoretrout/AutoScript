@@ -71,7 +71,7 @@ if __name__ == '__main__':
         elif acmd == 'single':
             carg = cargs[params.replace('$', '')]
 
-            args.append([carg for u in range(n_cmds)])
+            args.append([carg])
         elif acmd == 'path_join':
             dir_arg = params.split('$')[0]
             dir = cargs[dir_arg]
@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
                 _ = []
                 for a in l:
-                    _.append(os.path.join(dir, a))                
+                    _.append(os.path.join(dir, a))
 
             args.append(_)
         elif acmd == 'pickle':
