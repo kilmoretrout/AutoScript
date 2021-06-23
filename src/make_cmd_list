@@ -115,7 +115,7 @@ if __name__ == '__main__':
             args_ = []
             ix = [g]
 
-            args_.append(zip(*[args[u] for u in g]))
+            args_.append(list(zip(*[args[u] for u in g])))
             args_.extend([args[u] for u in range(len(args)) if u not in g])
             ix.extend([u for u in range(len(args)) if u not in g])
 
