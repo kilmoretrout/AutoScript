@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
                 for k in range(len(ix)):
                     ix_ = ix[k]
-                    if type(al[k]) == str:
+                    if type(al[k]) != tuple:
                         _[ix_[0]] = al[k]
                     else:
                         _[ix_[k]] = al[k]
