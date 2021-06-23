@@ -121,13 +121,12 @@ if __name__ == '__main__':
             args_.extend([args[u] for u in range(len(args)) if u not in g])
             ix.extend([[u] for u in range(len(args)) if u not in g])
 
-            args = list(product(*args_))
+            args_prod = list(product(*args_))
 
-            for al in args:
-                _ = np.array(['' for u in range(len(al))], dtype = str)
+            for al in args_prod:
+                _ = np.array(['' for u in range(len(args))], dtype = str)
 
-                for k in range(len(al)):
-                    _[ix[k]] = al[k]
+                print(ix, al)
 
                 print(_)
                 sys.exit()
