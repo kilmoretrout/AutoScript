@@ -120,13 +120,17 @@ if __name__ == '__main__':
             args_.extend([args[u] for u in range(len(args)) if u not in g])
             ix.extend([[u] for u in range(len(args)) if u not in g])
 
-            print(ix, args_)
-
             args = list(product(*args_))
 
-            print('#!/bin/bash')
-            print(ix, args[0])
-            sys.exit()
+            for al in args:
+                _ = np.array(['' for u in range(len(args))], dtype = str)
+
+                for k in range(len(al)):
+                    _[ix[k]] = a[k]
+
+                print(_)
+                sys.exit()
+
 
     else:
         cmds = []
