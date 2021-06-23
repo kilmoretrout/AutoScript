@@ -27,8 +27,16 @@ if __name__ == '__main__':
     cmd = lines[0]
     args_ = lines[1:]
 
+    super = None
+
     args = list()
     for arg in args_:
+        if arg = '':
+            continue
+        if '###' in arg:
+            super = args.replace('###', '')
+            continue
+
         acmd, params = arg.split(':')
 
         if acmd == 'over_dir':
@@ -99,8 +107,20 @@ if __name__ == '__main__':
 
             args.append(l)
 
-    print(args)
-    sys.exit()
+    if super is not None:
+        super = super.split(':')
+        if super[0] == 'product':
+            g = list(map(int, super[-1].split(',')))
+
+            args_ = []
+            ix = [g]
+
+            args_.append(zip(*[args[u] for u in g]))
+            args_.extend([args[u] for u in range(len(args)) if u not in g])
+            ix.extend([u for u in range(len(args)) if u not in g])
+
+            print(ix, args_)
+            sys.exit()
 
     cmds = []
     args = zip(*args)
