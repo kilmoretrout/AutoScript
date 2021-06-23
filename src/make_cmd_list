@@ -3,6 +3,7 @@
 import os
 import sys
 import configparser
+import pickle
 
 def get_paths(directory, ftype = 'npz'):
     ret = list()
@@ -55,10 +56,51 @@ if __name__ == '__main__':
 
             n_cmds = len(_)
             args.append(_)
-        if acmd == 'single':
+        elif acmd == 'single':
             carg = cargs[params.replace('$', '')]
 
             args.append([carg for u in range(n_cmds)])
+        elif acmd == 'path_join':
+            dir_arg = params.split('$')[0]
+            dir = cargs[dir_arg]
+
+            ext = params.split('$')[1]
+            if '\\list' in ext:
+                sargs = ext.replace('\\split', '')[1:-1]
+                _ = "l=" + sargs
+                exec(_)
+
+                _ = []
+                for a in l:
+                    _.append(os.path.join(dir, a))
+
+            args.append(_)
+        elif acmd == 'pickle':
+            pkl_arg = params.split('$')[1]
+            pkl = cargs[pkl_arg]
+
+            pkl = pickle.load(open(pkl, 'rb'))
+
+            ext = params.split('$')[1]
+            if '\\get' in ext:
+                _ = []
+
+                ix = int(ext.replace('\\split', '')[1:-1])
+                for p in pkl:
+                    _.append(p[ix])
+            elif '\\index' in ext:
+                _ = list(range(len(pkl)))
+
+            args.append(_)
+        elif acmd == 'list':
+            ext = params.split('$')[1]
+            _ = "l=" + ext.replace('\\split', '')[1:-1]
+            exec(_)
+
+            args.append(l)
+
+    print(args)
+    sys.exit()
 
     cmds = []
     args = zip(*args)
