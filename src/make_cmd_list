@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
             for al in args_prod:
 
-                _ = np.array(['' for u in range(max([max(u) for u in ix]))], dtype = str)
+                _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = str)
 
                 for k in range(len(al)):
                     _[ix[k]] = al[k]
