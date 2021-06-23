@@ -124,6 +124,8 @@ if __name__ == '__main__':
             ix.extend([[u] for u in range(len(args)) if all([(u not in g) for g in groups])])
 
             args_prod = list(product(*args_))
+            print(args_prod[0], args_[0], ix)
+            sys.exit()
 
             for al in args_prod:
                 _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = object)
