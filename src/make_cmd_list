@@ -117,14 +117,20 @@ if __name__ == '__main__':
 
             args_.append(list(zip(*[args[u] for u in g])))
             args_.extend([args[u] for u in range(len(args)) if u not in g])
-            ix.extend([u for u in range(len(args)) if u not in g])
+            ix.extend([[u] for u in range(len(args)) if u not in g])
 
             print(ix, args_)
+
+            args = list(product(*args_))
+
+            print('#!/bin/bash')
+            print(ix, args[0])
             sys.exit()
 
-    cmds = []
-    args = zip(*args)
+    else:
+        cmds = []
+        args = zip(*args)
 
-    print('#!/bin/bash')
-    for a in args:
-        print(cmd.format(*a))
+        print('#!/bin/bash')
+        for a in args:
+            print(cmd.format(*a))
