@@ -119,7 +119,7 @@ if __name__ == '__main__':
             args_ = []
             ix = copy.copy(groups)
 
-            args_.extend([list(zip(*[args[u] for u in g] for g in groups])))
+            args_.extend([list(zip(*[args[u] for u in g])) for g in groups])
             args_.extend([args[u] for u in range(len(args)) if all([(u not in g) for g in groups])])
             ix.extend([[u] for u in range(len(args)) if all([(u not in g) for g in groups])])
 
