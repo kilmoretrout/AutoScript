@@ -131,7 +131,7 @@ if __name__ == '__main__':
                     if type(al[k]) != tuple:
                         _[ix_[0]] = al[k]
                     else:
-                        _[ix_[k]] = al[k]
+                        _[ix_] = al[k]
 
                 print(_)
                 sys.exit()
