@@ -124,7 +124,7 @@ if __name__ == '__main__':
             args_prod = list(product(*args_))
 
             for al in args_prod:
-                _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = obj)
+                _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = object)
 
                 print(al, ix, len(_), _)
                 for k in range(len(ix)):
