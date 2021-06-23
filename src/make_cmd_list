@@ -124,11 +124,14 @@ if __name__ == '__main__':
             args_prod = list(product(*args_))
 
             for al in args_prod:
-
                 _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = str)
 
-                for k in range(len(al)):
-                    _[ix[k]] = al[k]
+                for k in range(len(ix)):
+                    ix_ = ix[k]
+                    if type(al[k]) == str:
+                        _[ix_[0]] = al[k]
+                    else:
+                        _[ix_[k]] = al[k]
 
                 print(_)
                 sys.exit()
