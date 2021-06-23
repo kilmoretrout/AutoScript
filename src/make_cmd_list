@@ -126,7 +126,6 @@ if __name__ == '__main__':
             for al in args_prod:
                 _ = np.array(['' for u in range(max([max(u) for u in ix]) + 1)], dtype = object)
 
-                print(al, ix, len(_), _)
                 for k in range(len(ix)):
                     ix_ = ix[k]
                     if type(al[k]) != tuple:
@@ -134,8 +133,7 @@ if __name__ == '__main__':
                     else:
                         _[ix_] = al[k]
 
-                print(_)
-                sys.exit()
+                print(cmd.format(*_))
 
 
     else:
