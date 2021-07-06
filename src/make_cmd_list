@@ -71,7 +71,7 @@ if __name__ == '__main__':
         elif acmd == 'single':
             carg = cargs[params.replace('$', '')]
 
-            args.append([carg])
+            args.append([carg for u in range(n_cmds)])
         elif acmd == 'path_join':
             dir_arg = params.split('$')[0]
             dir = cargs[dir_arg]
